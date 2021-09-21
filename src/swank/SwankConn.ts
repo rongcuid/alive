@@ -176,6 +176,10 @@ export class SwankConn extends EventEmitter {
         return await this.requestFn(compileFileReq, response.CompileFile, str, pkg)
     }
 
+    async compileSystem(sysName: string): Promise<response.CompileFile | response.Abort> {
+        return await this.requestFn(compileSystemReq, response.CompileFile, sysName)
+    }
+
     async loadFile(path: string, pkg?: string): Promise<response.Eval | response.Abort> {
         return await this.requestFn(loadFileReq, response.Eval, path, pkg)
     }
