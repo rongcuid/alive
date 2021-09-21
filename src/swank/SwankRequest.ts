@@ -64,7 +64,7 @@ export function opArgsReq(msgID: number, name: string, pkg: string) {
 }
 
 export function swankRequireReq(msgID: number, pkg?: string) {
-    const data = [new LispID('swank:swank-require (quote (swank-repl))')]
+    const data = [new LispID('swank:swank-require (quote (swank-repl swank-asdf))')]
     return emacsRex(msgID, toWire(data), new LispID(pkg ?? 'nil'), true)
 }
 
