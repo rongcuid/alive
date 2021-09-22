@@ -46,9 +46,11 @@ async function testCompileSystem() {
 
     try {
         await conn.connect()
+        await conn.swankRequire()
 
         conn.trace = true
-        const resp = await conn.compileSystem('demo')
+        conn.on('log-trace', (msg) => console.log(msg))
+        const resp = await conn.compileSystem('hgpoker/test')
         console.log(resp)
     } finally {
         conn.close()

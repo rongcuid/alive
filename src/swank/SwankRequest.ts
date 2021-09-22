@@ -139,7 +139,13 @@ export function compileFileReq(msgID: number, fileName: string, pkg?: string) {
 }
 
 export function compileSystemReq(msgID: number, systemName: string, pkg?: string) {
-    const data = [new LispID('swank:operate-on-system-for-emacs'), systemName, new LispQuote('asdf:compile-op')]
+    const data = [
+        new LispID('swank:operate-on-system-for-emacs'),
+        systemName,
+        new LispQuote('compile-op'),
+        new LispSymbol('force'),
+        true,
+    ]
     return emacsRex(msgID, toWire(data), new LispID(pkg ?? 'nil'), true)
 }
 
