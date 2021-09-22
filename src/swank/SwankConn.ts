@@ -40,6 +40,7 @@ import {
     abortReadEvent,
     interruptEvent,
     pongEvent,
+    compileSystemReq,
 } from './SwankRequest'
 import { SwankResponse } from './SwankResponse'
 import { ConnInfo } from './Types'
