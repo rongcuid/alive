@@ -41,7 +41,7 @@ class Provider implements vscode.CompletionItemProvider {
                 const sepPos = atom.start.character + ndx
 
                 if (ndx > 0 && pos.character > sepPos) {
-                    const newName = await this.state.pkgMgr.getNameByNickname(
+                    const newName = await this.state.pkgMgr.resolveNickname(
                         this.state.repl,
                         document.fileName,
                         pos.line,

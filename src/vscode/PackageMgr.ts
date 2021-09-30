@@ -88,7 +88,7 @@ export class PackageMgr {
         return this.pkgs[CL_USER_PKG]
     }
 
-    async getNameByNickname(repl: Repl, fileName: string, line: number, nickname: string): Promise<string | undefined> {
+    async resolveNickname(repl: Repl, fileName: string, line: number, nickname: string): Promise<string | undefined> {
         const pkg = this.getPackageForLine(fileName, line)
 
         if (pkg === undefined) {
